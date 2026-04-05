@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jdaй BETA (Tor)</title>
+
+  <style>
+    body {
+      background: #ffffff;
+      color: #000;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    a { color: #0000ff; }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .menu {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .menu div {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .box1 { background: #ccffff; }
+    .box2 { background: #99ccff; }
+    .box3 { background: #6699cc; }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 6px 12px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <img src="IMG_1795.jpg" alt="jdaй BETA" width="300">
+
+    <p style="font-size: 20px;">Search the web using jdaй (Tor)!</p>
+
+    <!-- Поиск -->
+    <form id="searchForm">
+      <input type="text" id="query" placeholder="Введите запрос">
+      <br><br>
+      <button type="submit">jdaй Search</button>
+      <button type="button" id="luckyBtn">I'm feeling lucky</button>
+    </form>
+
+    <!-- Меню -->
+    <div class="menu">
+      <div class="box1">
+        <b>Special Searches</b><br>
+        <a href="http://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q=Stanford">Stanford Search</a><br>
+        <a href="http://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q=Linux">Linux Search</a>
+      </div>
+
+      <div class="box2">
+        <b>Help!</b><br>
+        <a href="#">About jdaй</a><br>
+        <a href="#">Company Info</a><br>
+        <a href="#">jdaй Logos</a>
+      </div>
+
+      <div class="box3">
+        <b>Get jdaй! updates monthly:</b><br>
+        <form action="subscribe.html" method="POST">
+          <input type="text" name="email"><br>
+          <button type="submit">Subscribe</button>
+        </form>
+        <a href="#">Archive</a>
+      </div>
+    </div>
+
+    <footer>
+      Copyright © 1998 jdaй Inc.
+    </footer>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('searchForm');
+    const input = document.getElementById('query');
+    const luckyBtn = document.getElementById('luckyBtn');
+
+    const TOR_DDG = "http://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q=";
+
+    function search() {
+      const query = input.value.trim();
+      if (!query) {
+        alert("Введите запрос!");
+        return;
+      }
+      window.location.href = TOR_DDG + encodeURIComponent(query);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      search();
+    });
+
+    luckyBtn.addEventListener('click', () => {
+      search();
+    });
+  </script>
+</body>
+</html>
